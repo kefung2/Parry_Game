@@ -1,0 +1,33 @@
+name: pygbag_build
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build WebAssembly and publish GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pygbag
+        run: python -m pip install -r requirements-web.txt
+
+      - name: Build WebAssembly bundle
+        run: python -m pygbag --build .
+
+      - name: Publish build/web to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build/web
+          branch: gh-pages
+          clean: true

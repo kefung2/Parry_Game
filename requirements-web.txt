@@ -1,0 +1,5 @@
+# WebAssembly build (browser). Desktop play still uses requirements.txt.
+#   pip install -r requirements-web.txt
+#   python -m pygbag --build .
+# Output lands in build/web. Host that folder on GitHub Pages.
+pygbag>=0.9.1
