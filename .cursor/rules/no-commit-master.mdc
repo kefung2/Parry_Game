@@ -1,0 +1,10 @@
+---
+description: Do not commit or push to master unless Kevin explicitly asks
+alwaysApply: true
+---
+
+# Master is protected
+
+Do not commit, merge, or push to `master` unless Kevin explicitly asks for that branch.
+
+Do day-to-day work on `Staging` or another branch he names. Pushing `master` and opening a pull request into `master` also require an explicit ask.
